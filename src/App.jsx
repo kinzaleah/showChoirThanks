@@ -1,17 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Landing from "./Landing";
 import BackHomeIcon from "./BackHomeIcon";
+import thanksData from "./thanksData";
 
-const TOTAL_COMMENTS = 100;
-const COMMENTS_PER_PAGE = 8;
+// Use 3 comments per page to avoid overlap
+const DEFAULT_COMMENTS_PER_PAGE = 3;
 const PLACEHOLDER_PHOTO = "https://picsum.photos/400/400?grayscale&random=1";
-
-// Generate placeholder comments
-const allComments = Array.from(
-  { length: TOTAL_COMMENTS },
-  (_, i) => `This is comment #${i + 1}`
-);
 
 const COMMENT_COLORS = [
   "#FFB3BA", // light red
@@ -24,12 +19,40 @@ const COMMENT_COLORS = [
   "#Baffff", // light cyan
 ];
 
+function shuffleArray(array) {
+  // Fisher-Yates shuffle
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 function App() {
   const [showLanding, setShowLanding] = useState(true);
   const [page, setPage] = useState(1);
-  const totalPages = Math.ceil(TOTAL_COMMENTS / COMMENTS_PER_PAGE);
-  const startIdx = (page - 1) * COMMENTS_PER_PAGE;
-  const comments = allComments.slice(startIdx, startIdx + COMMENTS_PER_PAGE);
+  const [commentsPerPage, setCommentsPerPage] = useState(DEFAULT_COMMENTS_PER_PAGE);
+  const [shuffledComments, setShuffledComments] = useState([]);
+
+  useEffect(() => {
+    // Always use 3 comments per page for safety
+    setCommentsPerPage(DEFAULT_COMMENTS_PER_PAGE);
+    // Shuffle comments only once on mount
+    setShuffledComments(shuffleArray(thanksData));
+    // eslint-disable-next-line
+  }, []);
+
+  const totalPages = Math.ceil((shuffledComments.length || thanksData.length) / commentsPerPage);
+  const startIdx = (page - 1) * commentsPerPage;
+  const comments = (shuffledComments.length ? shuffledComments : thanksData).slice(startIdx, startIdx + commentsPerPage);
+  // Shuffle colors for each page render
+  const pageColors = shuffleArray(COMMENT_COLORS).slice(0, comments.length);
+
+  useEffect(() => {
+    if (page > totalPages) setPage(1);
+    // eslint-disable-next-line
+  }, [commentsPerPage, totalPages]);
 
   if (showLanding) {
     return <Landing onEnter={() => setShowLanding(false)} />;
@@ -44,15 +67,15 @@ function App() {
             <img src={PLACEHOLDER_PHOTO} alt="Placeholder" />
           </div>
           <div className="comments">
-            {comments.map((comment, idx) => (
+            {comments.map((entry, idx) => (
               <div
                 className="comment"
-                key={idx}
+                key={startIdx + idx}
                 style={{
-                  background: COMMENT_COLORS[idx % COMMENT_COLORS.length],
+                  background: pageColors[idx],
                 }}
               >
-                {comment}
+                <strong>{entry.Name}:</strong> {entry.Comment}
               </div>
             ))}
           </div>
