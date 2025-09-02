@@ -1,0 +1,16 @@
+.back-home-icon {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  width: 38px;
+  height: 38px;
+  z-index: 100;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  transition: box-shadow 0.2s;
+}
+.back-home-icon:hover {
+  box-shadow: 0 4px 16px rgba(227, 11, 92, 0.18);
+}
