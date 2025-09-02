@@ -1,16 +1,4 @@
 import { useState, useEffect } from "react";
-// Helper hook to detect mobile width
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth <= 480);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  return isMobile;
-}
 import "./App.css";
 import Landing from "./Landing";
 import BackHomeIcon from "./BackHomeIcon";
@@ -73,7 +61,6 @@ function shuffleArray(array) {
 }
 
 function App() {
-  const isMobile = useIsMobile();
   const [showLanding, setShowLanding] = useState(true);
   const [page, setPage] = useState(1);
   const [commentsPerPage, setCommentsPerPage] = useState(DEFAULT_COMMENTS_PER_PAGE);
@@ -111,47 +98,24 @@ function App() {
     <>
       <BackHomeIcon onClick={() => setShowLanding(true)} />
       <div className="container">
-        {isMobile ? (
-          <div className="grid-flex">
-            <div className="grid">
-              <div className="photo">
-                <img src={photoSrc} alt={`Show Choir ${photoIdx + 1}`} />
-              </div>
-              <div className="comments">
-                {comments.map((entry, idx) => (
-                  <div
-                    className="comment"
-                    key={startIdx + idx}
-                    style={{
-                      background: pageColors[idx],
-                    }}
-                  >
-                    <strong>{entry.Name}:</strong> {entry.Comment}
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div className="grid">
+          <div className="photo">
+            <img src={photoSrc} alt={`Show Choir ${photoIdx + 1}`} />
           </div>
-        ) : (
-          <div className="grid">
-            <div className="photo">
-              <img src={photoSrc} alt={`Show Choir ${photoIdx + 1}`} />
-            </div>
-            <div className="comments">
-              {comments.map((entry, idx) => (
-                <div
-                  className="comment"
-                  key={startIdx + idx}
-                  style={{
-                    background: pageColors[idx],
-                  }}
-                >
-                  <strong>{entry.Name}:</strong> {entry.Comment}
-                </div>
-              ))}
-            </div>
+          <div className="comments">
+            {comments.map((entry, idx) => (
+              <div
+                className="comment"
+                key={startIdx + idx}
+                style={{
+                  background: pageColors[idx],
+                }}
+              >
+                <strong>{entry.Name}:</strong> {entry.Comment}
+              </div>
+            ))}
           </div>
-        )}
+        </div>
         <div className="pagination">
           <button onClick={() => setPage(page - 1)} disabled={page === 1}>
             &lt; Prev
