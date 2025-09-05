@@ -100,13 +100,23 @@ function App() {
   }, [page]);
 
   if (showLanding) {
-    return <Landing onEnter={() => setShowLanding(false)} />;
+    return (
+      <Landing
+        onEnter={() => {
+          setShowLanding(false);
+          setPage(1);
+        }}
+      />
+    );
   }
 
   if (showExtraThanks) {
     return (
       <ExtraThanks
-        onBack={() => setShowExtraThanks(false)}
+        onBack={() => {
+          setShowExtraThanks(false);
+          setPage(1);
+        }}
         onHome={() => {
           setShowExtraThanks(false);
           setShowLanding(true);
@@ -158,7 +168,23 @@ function App() {
           &lt; Prev
         </button>
         <span>
-          Page {page} of {totalPages}
+          Page
+          <select
+            value={page}
+            onChange={(e) => setPage(Number(e.target.value))}
+            style={{
+              margin: "0 0.5rem",
+              padding: "0.2rem 0.5rem",
+              fontSize: "1rem",
+            }}
+          >
+            {Array.from({ length: totalPages }, (_, i) => (
+              <option key={i + 1} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+          of {totalPages}
         </span>
         <button
           onClick={() => setPage(page + 1)}
