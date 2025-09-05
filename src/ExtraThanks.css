@@ -1,3 +1,8 @@
+@media (min-width: 700px) {
+  .extra-thanks-back {
+    margin-bottom: 2.5rem !important;
+  }
+}
 .extra-thanks-container {
   display: flex;
   flex-direction: column;
@@ -8,19 +13,25 @@
   background: #ffffff;
 }
 
-.extra-thanks-back {
+.extra-thanks-back,
+.extra-thanks-home {
   margin-top: 2rem;
-  padding: 0.75rem 2rem;
-  font-size: 1.2rem;
-  background: #bae1ff;
-  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
   border-radius: 8px;
+  border: none;
+  background: #e30b5c;
+  color: #fff;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.2s;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-.extra-thanks-back:hover {
-  background: #e2baff;
+.extra-thanks-back:hover,
+.extra-thanks-home:hover {
+  background: #b8003c;
 }
 
 .extra-thanks-photo {

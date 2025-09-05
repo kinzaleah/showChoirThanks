@@ -139,6 +139,20 @@ function App() {
           ))}
         </div>
       </div>
+      {page === totalPages && (
+        <button
+          className="extra-thanks-back"
+          onClick={() => setShowExtraThanks(true)}
+          style={{
+            marginLeft: "auto",
+            marginRight: "auto",
+            display: "block",
+            marginBottom: "1rem",
+          }}
+        >
+          Extra Thanks
+        </button>
+      )}
       <div className="pagination">
         <button onClick={() => setPage(page - 1)} disabled={page === 1}>
           &lt; Prev
@@ -152,23 +166,6 @@ function App() {
         >
           Next &gt;
         </button>
-        {page === totalPages && (
-          <button
-            className="extra-thanks-btn"
-            style={{
-              marginLeft: "1rem",
-              background: "#E2BAFF",
-              borderRadius: "8px",
-              padding: "0.5rem 1.5rem",
-              fontSize: "1rem",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onClick={() => setShowExtraThanks(true)}
-          >
-            Extra Thanks
-          </button>
-        )}
       </div>
     </div>
   );

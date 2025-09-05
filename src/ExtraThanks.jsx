@@ -22,8 +22,8 @@ function ExtraThanks({ onBack, onHome }) {
         success!!
       </p>
       <p>
-        And a very big thank you to those who took photos that I've used here -
-        especially
+        And a very big thank you to those who took photos that I've used here
+        <br />- especially
         <a
           href="https://www.instagram.com/craigrosiephotography?igsh=MXVpYmE4aWJyOXF3cA=="
           target="_blank"
