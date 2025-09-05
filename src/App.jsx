@@ -69,13 +69,26 @@ function App() {
   const [commentsPerPage, setCommentsPerPage] = useState(
     DEFAULT_COMMENTS_PER_PAGE
   );
-  const [shuffledComments, setShuffledComments] = useState([]);
+  const [shuffledComments] = useState(() => {
+    const saved = localStorage.getItem("shuffledComments");
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch {
+        // fallback to shuffle if corrupted
+        const shuffled = shuffleArray(thanksData);
+        localStorage.setItem("shuffledComments", JSON.stringify(shuffled));
+        return shuffled;
+      }
+    } else {
+      const shuffled = shuffleArray(thanksData);
+      localStorage.setItem("shuffledComments", JSON.stringify(shuffled));
+      return shuffled;
+    }
+  });
 
   useEffect(() => {
-    // Always use 3 comments per page for safety
     setCommentsPerPage(DEFAULT_COMMENTS_PER_PAGE);
-    // Shuffle comments only once on mount
-    setShuffledComments(shuffleArray(thanksData));
   }, []);
 
   const totalPages = Math.ceil(
