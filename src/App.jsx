@@ -63,7 +63,9 @@ function shuffleArray(array) {
 function App() {
   const [showLanding, setShowLanding] = useState(true);
   const [page, setPage] = useState(1);
-  const [commentsPerPage, setCommentsPerPage] = useState(DEFAULT_COMMENTS_PER_PAGE);
+  const [commentsPerPage, setCommentsPerPage] = useState(
+    DEFAULT_COMMENTS_PER_PAGE
+  );
   const [shuffledComments, setShuffledComments] = useState([]);
 
   useEffect(() => {
@@ -74,21 +76,30 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
-  const totalPages = Math.ceil((shuffledComments.length || thanksData.length) / commentsPerPage);
+  const totalPages = Math.ceil(
+    (shuffledComments.length || thanksData.length) / commentsPerPage
+  );
   const startIdx = (page - 1) * commentsPerPage;
-  const comments = (shuffledComments.length ? shuffledComments : thanksData).slice(startIdx, startIdx + commentsPerPage);
+  const comments = (
+    shuffledComments.length ? shuffledComments : thanksData
+  ).slice(startIdx, startIdx + commentsPerPage);
   // Shuffle colors for each page render
   const pageColors = shuffleArray(COMMENT_COLORS).slice(0, comments.length);
 
   useEffect(() => {
     if (page > totalPages) setPage(1);
-    // eslint-disable-next-line
   }, [commentsPerPage, totalPages]);
+
+  // Scroll to top on page change for small screens
+  useEffect(() => {
+    if (window.innerWidth <= 700) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [page]);
 
   if (showLanding) {
     return <Landing onEnter={() => setShowLanding(false)} />;
   }
-
 
   // Pick a photo for this page, cycling if more pages than photos
   const photoIdx = (page - 1) % PHOTOS.length;
