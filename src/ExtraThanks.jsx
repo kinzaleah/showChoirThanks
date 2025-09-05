@@ -4,17 +4,31 @@ import "./ExtraThanks.css";
 function ExtraThanks({ onBack, onHome }) {
   return (
     <div className="extra-thanks-container">
-      <h1>Extra Thanks!</h1>
+      <img
+        src={"/src/photos/29-4StarReviews.jpg"}
+        alt="4 Star Review"
+        className="extra-thanks-photo"
+        style={{
+          maxWidth: "250px",
+          width: "100%",
+          marginBottom: "2rem",
+          borderRadius: "12px",
+        }}
+      />
+      <h2>Extra Thanks To...</h2>
+
       <p>
         Everyone who took part in Edinburgh Fringe 25 and made it such a
         success!!
       </p>
-      <p>Those who took photos that I've used here - especially</p>
       <p>
+        And a very big thank you to those who took photos that I've used here -
+        especially
         <a
           href="https://www.instagram.com/craigrosiephotography?igsh=MXVpYmE4aWJyOXF3cA=="
           target="_blank"
           rel="noopener noreferrer"
+          style={{ marginLeft: "6px" }}
         >
           craigrosiephotograpy
         </a>
@@ -23,7 +37,7 @@ function ExtraThanks({ onBack, onHome }) {
         Back to Comments
       </button>
       <button
-        className="extra-thanks-home"
+        className="extra-thanks-back"
         onClick={onHome}
         style={{ marginTop: "1rem" }}
       >
