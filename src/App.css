@@ -91,4 +91,8 @@
   .comments {
     width: 100%;
   }
+  .pagination {
+    position: static;
+    margin-top: 2rem;
+  }
 }
