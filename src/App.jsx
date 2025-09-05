@@ -31,9 +31,9 @@ const PHOTOS = [
   "23-choir1GroupSocial3.jpg",
   "24-choir2ChloeOcho.jpg",
   "25-choir1Sops.jpeg",
-  "26-choir2BugsyJess.jpg",
-  "27-choir1ArthursSeat.jpeg",
   "28-choir2Group.jpg",
+  "27-choir1ArthursSeat.jpeg",
+  "26-choir2BugsyJess.jpg",
   "29-4StarReviews.jpg",
 ];
 
