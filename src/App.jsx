@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Landing from "./Landing";
-import BackHomeIcon from "./BackHomeIcon";
 import thanksData from "./thanksData";
+import ExtraThanks from "./ExtraThanks";
 
 // List of photo filenames in src/photos (relative to public or src for Vite)
 const PHOTOS = [
@@ -64,6 +64,7 @@ function shuffleArray(array) {
 
 function App() {
   const [showLanding, setShowLanding] = useState(true);
+  const [showExtraThanks, setShowExtraThanks] = useState(false);
   const [page, setPage] = useState(1);
   const [commentsPerPage, setCommentsPerPage] = useState(
     DEFAULT_COMMENTS_PER_PAGE
@@ -75,7 +76,6 @@ function App() {
     setCommentsPerPage(DEFAULT_COMMENTS_PER_PAGE);
     // Shuffle comments only once on mount
     setShuffledComments(shuffleArray(thanksData));
-    // eslint-disable-next-line
   }, []);
 
   const totalPages = Math.ceil(
@@ -90,7 +90,7 @@ function App() {
 
   useEffect(() => {
     if (page > totalPages) setPage(1);
-  }, [commentsPerPage, totalPages]);
+  }, [commentsPerPage, totalPages, page]);
 
   // Scroll to top on page change for small screens
   useEffect(() => {
@@ -101,6 +101,18 @@ function App() {
 
   if (showLanding) {
     return <Landing onEnter={() => setShowLanding(false)} />;
+  }
+
+  if (showExtraThanks) {
+    return (
+      <ExtraThanks
+        onBack={() => setShowExtraThanks(false)}
+        onHome={() => {
+          setShowExtraThanks(false);
+          setShowLanding(true);
+        }}
+      />
+    );
   }
 
   // Pick a photo for this page, cycling if more pages than photos
@@ -140,6 +152,23 @@ function App() {
         >
           Next &gt;
         </button>
+        {page === totalPages && (
+          <button
+            className="extra-thanks-btn"
+            style={{
+              marginLeft: "1rem",
+              background: "#E2BAFF",
+              borderRadius: "8px",
+              padding: "0.5rem 1.5rem",
+              fontSize: "1rem",
+              border: "none",
+              cursor: "pointer",
+            }}
+            onClick={() => setShowExtraThanks(true)}
+          >
+            Extra Thanks
+          </button>
+        )}
       </div>
     </div>
   );
