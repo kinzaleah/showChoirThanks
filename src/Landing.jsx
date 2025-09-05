@@ -1,6 +1,6 @@
 import "./Landing.css";
 
-const PLACEHOLDER_IMAGE = "https://picsum.photos/600/400?grayscale&random=2";
+const PLACEHOLDER_IMAGE = "/src/landingPagePhotos/dougBoots.jpg";
 
 function Landing({ onEnter }) {
   return (
