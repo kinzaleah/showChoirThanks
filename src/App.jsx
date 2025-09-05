@@ -108,43 +108,40 @@ function App() {
   const photoSrc = `/src/photos/${PHOTOS[photoIdx]}`;
 
   return (
-    <>
-      <BackHomeIcon onClick={() => setShowLanding(true)} />
-      <div className="container">
-        <div className="grid">
-          <div className="photo">
-            <img src={photoSrc} alt={`Show Choir ${photoIdx + 1}`} />
-          </div>
-          <div className="comments">
-            {comments.map((entry, idx) => (
-              <div
-                className="comment"
-                key={startIdx + idx}
-                style={{
-                  background: pageColors[idx],
-                }}
-              >
-                <strong>{entry.Name}:</strong> {entry.Comment}
-              </div>
-            ))}
-          </div>
+    <div className="container">
+      <div className="grid">
+        <div className="photo">
+          <img src={photoSrc} alt={`Show Choir ${photoIdx + 1}`} />
         </div>
-        <div className="pagination">
-          <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-            &lt; Prev
-          </button>
-          <span>
-            Page {page} of {totalPages}
-          </span>
-          <button
-            onClick={() => setPage(page + 1)}
-            disabled={page === totalPages}
-          >
-            Next &gt;
-          </button>
+        <div className="comments">
+          {comments.map((entry, idx) => (
+            <div
+              className="comment"
+              key={startIdx + idx}
+              style={{
+                background: pageColors[idx],
+              }}
+            >
+              <strong>{entry.Name}:</strong> {entry.Comment}
+            </div>
+          ))}
         </div>
       </div>
-    </>
+      <div className="pagination">
+        <button onClick={() => setPage(page - 1)} disabled={page === 1}>
+          &lt; Prev
+        </button>
+        <span>
+          Page {page} of {totalPages}
+        </span>
+        <button
+          onClick={() => setPage(page + 1)}
+          disabled={page === totalPages}
+        >
+          Next &gt;
+        </button>
+      </div>
+    </div>
   );
 }
 
