@@ -71,8 +71,8 @@
   bottom: 2rem;
 }
 .pagination button {
-  padding: 0.3rem 0.6rem;
-  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
   /* Style for pagination select dropdown */
   .pagination select {
     padding: 0.2rem 0.5rem;
@@ -105,6 +105,10 @@ body {
   .comments {
     width: 100%;
   }
+    .pagination button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1.1rem;
+    }
   .pagination {
     position: static;
     margin-top: 1rem;
