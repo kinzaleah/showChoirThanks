@@ -37,7 +37,7 @@ function ExtraThanks({ onBack, onHome }) {
         Back to Comments
       </button>
       <button
-        className="extra-thanks-back"
+        className="extra-thanks-home"
         onClick={onHome}
         style={{ marginTop: "1rem" }}
       >

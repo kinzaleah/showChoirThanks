@@ -1,8 +1,4 @@
-@media (min-width: 700px) {
-  .extra-thanks-back {
-    margin-bottom: 2.5rem !important;
-  }
-}
+
 .extra-thanks-container {
   display: flex;
   flex-direction: column;
