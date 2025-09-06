@@ -39,7 +39,6 @@ const PHOTOS = [
 
 // Use 3 comments per page to avoid overlap
 const DEFAULT_COMMENTS_PER_PAGE = 3;
-const PLACEHOLDER_PHOTO = "https://picsum.photos/400/400?grayscale&random=1";
 
 const COMMENT_COLORS = [
   "#FFB3BA", // light red
@@ -66,9 +65,11 @@ function App() {
   const [showLanding, setShowLanding] = useState(true);
   const [showExtraThanks, setShowExtraThanks] = useState(false);
   const [page, setPage] = useState(1);
+  
   const [commentsPerPage, setCommentsPerPage] = useState(
     DEFAULT_COMMENTS_PER_PAGE
   );
+  
   const [shuffledComments] = useState(() => {
     const saved = localStorage.getItem("shuffledComments");
     if (saved) {
