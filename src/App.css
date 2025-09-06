@@ -56,11 +56,18 @@
 }
 
 .comment {
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(227, 11, 92, 0.10);
   font-size: 1.1rem;
-  transition: background 0.3s;
+  background: linear-gradient(120deg, #fff 0%, #f8e3f1 100%);
+  border: 1.5px solid darkslategrey;
+  margin-bottom: 0.7rem;
+  transition: box-shadow 0.3s, border-color 0.3s, background 0.5s;
+  position: relative;
+}
+.comment:last-child {
+  margin-bottom: 0;
 }
 
 .logo-container {
