@@ -9,7 +9,7 @@ function ExtraThanks({ onBack, onHome }) {
         alt="4 Star Review"
         className="extra-thanks-photo"
         style={{
-          maxWidth: "250px",
+          maxWidth: "350px",
           width: "100%",
           marginBottom: "2rem",
           borderRadius: "12px",
@@ -18,7 +18,7 @@ function ExtraThanks({ onBack, onHome }) {
       <h2>Extra Thanks To...</h2>
 
       <p>
-        Everyone who took part in Edinburgh Fringe 25 and made it such a
+        Everyone who took part in Edinburgh Fringe '25 and made it such a
         success!!
       </p>
       <p>
