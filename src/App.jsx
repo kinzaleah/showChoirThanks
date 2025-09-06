@@ -145,7 +145,7 @@ function App() {
 
   return (
       <div className="container">
-        <div className="logo-container">
+        <div className="fringe-logo-container">
           <img src="src/photos/fringeLogo.jpg" alt="Fringe Logo" style={{ maxWidth: '180px', width: '100%', height: 'auto', display: 'block', margin: '0 auto' }} />
         </div>
       <div className="grid">
