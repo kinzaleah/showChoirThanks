@@ -2,6 +2,7 @@
   background: #e30b5c;
   color: #fff;
   border-color: #e30b5c;
+  box-shadow: 0 4px 16px rgba(227, 11, 92, 0.12);
 }
 
 #root {
@@ -39,7 +40,7 @@
 .photo img {
   width: 100%;
   max-width: 500px;
-  max-height: 600px;
+  max-height: 500px;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   object-fit: cover;
@@ -83,15 +84,14 @@
 .pagination button {
   padding: 0.6rem 1.2rem;
   font-size: 1.1rem;
-  /* Style for pagination select dropdown */
-  .pagination select {
-    padding: 0.2rem 0.5rem;
-    font-size: 0.85rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
+  border-radius: 8px;
+  border: 2px solid #e30b5c;
+  background: #fff;
+  color: #e30b5c;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(227, 11, 92, 0.08);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 .pagination button:disabled {
   opacity: 0.5;
