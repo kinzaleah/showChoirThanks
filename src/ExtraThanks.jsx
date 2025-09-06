@@ -33,16 +33,17 @@ function ExtraThanks({ onBack, onHome }) {
           craigrosiephotograpy
         </a>
       </p>
-      <button className="extra-thanks-back" onClick={onBack}>
-        Back to Comments
-      </button>
-      <button
-        className="extra-thanks-back"
-        onClick={onHome}
-        style={{ marginTop: "1rem" }}
-      >
-        Back to Home
-      </button>
+      <div className="extra-thanks-buttons">
+        <button className="extra-thanks-back" onClick={onBack}>
+          Back to Comments
+        </button>
+        <button
+          className="extra-thanks-home"
+          onClick={onHome}
+        >
+          Back to Home
+        </button>
+      </div>
     </div>
   );
 }

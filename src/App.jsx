@@ -29,7 +29,7 @@ const PHOTOS = [
   "21-choir1GroupSocial2.jpg",
   "22-choir2Sops2.jpg",
   "23-choir1GroupSocial3.jpg",
-  "24-choir2ChloeOcho.jpg",
+  "24-choir2WestonPortishead.jpg",
   "25-choir1Sops.jpeg",
   "28-choir2Group.jpg",
   "27-choir1ArthursSeat.jpeg",
@@ -39,7 +39,6 @@ const PHOTOS = [
 
 // Use 3 comments per page to avoid overlap
 const DEFAULT_COMMENTS_PER_PAGE = 3;
-const PLACEHOLDER_PHOTO = "https://picsum.photos/400/400?grayscale&random=1";
 
 const COMMENT_COLORS = [
   "#FFB3BA", // light red

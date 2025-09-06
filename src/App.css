@@ -1,3 +1,4 @@
+
 .pagination button:hover:not(:disabled) {
   background: #e30b5c;
   color: #fff;
@@ -10,7 +11,6 @@
   padding: 2rem;
   text-align: left;
 }
-
 .container {
   display: flex;
   flex-direction: column;
@@ -19,7 +19,6 @@
   position: relative;
   min-width: 80%;
 }
-
 .grid {
   display: flex;
   flex-direction: row;
@@ -28,6 +27,7 @@
   gap: 2rem;
   min-height: 400px;
 }
+
 
 .photo {
   display: flex;

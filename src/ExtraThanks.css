@@ -1,5 +1,5 @@
 @media (min-width: 700px) {
-  .extra-thanks-back {
+  .extra-thanks-home {
     margin-bottom: 2.5rem !important;
   }
 }
@@ -13,10 +13,15 @@
   background: #ffffff;
 }
 
-.extra-thanks-back,
-.extra-thanks-home {
-  margin-top: 2rem;
-  padding: 1rem 2.5rem;
+.extra-thanks-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.extra-thanks-back {
+  margin-bottom: 0.3rem;
+  padding: 1rem 1.5rem;
   font-size: 1.3rem;
   border-radius: 8px;
   border: none;
@@ -24,8 +29,18 @@
   color: #fff;
   cursor: pointer;
   transition: background 0.2s;
-  margin-left: auto;
-  margin-right: auto;
+  display: block;
+}
+.extra-thanks-home {
+  margin-top: 0.3rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  border: none;
+  background: #e30b5c;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
   display: block;
 }
 
@@ -35,7 +50,7 @@
 }
 
 .extra-thanks-photo {
-  max-width: 300px;
+  max-width: 400px;
   width: 100%;
   max-height: 450px;
   margin-bottom: 2rem;
