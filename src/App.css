@@ -60,6 +60,16 @@
   transition: background 0.3s;
 }
 
+.logo-container {
+  margin-bottom: 1rem;
+
+  max-width: 300px;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .pagination {
   display: flex;
   align-items: center;

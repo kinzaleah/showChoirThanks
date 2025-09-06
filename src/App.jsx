@@ -144,7 +144,10 @@ function App() {
   const photoSrc = `/src/photos/${PHOTOS[photoIdx]}`;
 
   return (
-    <div className="container">
+      <div className="container">
+        <div className="logo-container">
+          <img src="src/photos/fringeLogo.jpg" alt="Fringe Logo" style={{ maxWidth: '180px', width: '100%', height: 'auto', display: 'block', margin: '0 auto' }} />
+        </div>
       <div className="grid">
         <div className="photo">
           <img src={photoSrc} alt={`Show Choir ${photoIdx + 1}`} />
