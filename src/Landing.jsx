@@ -1,6 +1,6 @@
 import "./Landing.css";
 
-const PLACEHOLDER_IMAGE = "/src/landingPagePhotos/dougBoots.jpg";
+const PLACEHOLDER_IMAGE = `${import.meta.env.BASE_URL}photos/dougBoots.jpg`;
 
 function Landing({ onEnter }) {
   return (

@@ -141,12 +141,12 @@ function App() {
 
   // Pick a photo for this page, cycling if more pages than photos
   const photoIdx = (page - 1) % PHOTOS.length;
-  const photoSrc = `/src/photos/${PHOTOS[photoIdx]}`;
+  const photoSrc = `${import.meta.env.BASE_URL}photos/${PHOTOS[photoIdx]}`;
 
   return (
       <div className="container">
         <div className="fringe-logo-container">
-          <img src="src/photos/fringeLogo.jpg" alt="Fringe Logo" style={{ maxWidth: '180px', width: '100%', height: 'auto', display: 'block', margin: '0 auto' }} />
+          <img src={`${import.meta.env.BASE_URL}photos/fringeLogo.jpg`} alt="Fringe Logo" style={{ maxWidth: '180px', width: '100%', height: 'auto', display: 'block', margin: '0 auto' }} />
         </div>
       <div className="grid">
         <div className="photo">

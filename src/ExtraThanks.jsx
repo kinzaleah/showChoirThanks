@@ -5,7 +5,7 @@ function ExtraThanks({ onBack, onHome }) {
   return (
     <div className="extra-thanks-container">
       <img
-        src={"/src/photos/29-4StarReviews.jpg"}
+        src={`${import.meta.env.BASE_URL}photos/29-4StarReviews.jpg`}
         alt="4 Star Review"
         className="extra-thanks-photo"
         style={{
