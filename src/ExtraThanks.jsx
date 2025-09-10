@@ -16,7 +16,7 @@ function ExtraThanks({ onBack, onHome }) {
         Everyone who took part in Edinburgh Fringe '25 and made it such a
         success!!
       </p>
-      <p className="extra-thanks-text-lower">
+      <p className="extra-thanks-text">
         And a very big thank you to those who took photos that I've used here
         <br />- especially
         <a

@@ -11,12 +11,9 @@
 
 .extra-thanks-text {
   margin: 0 0 1rem 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
-.extra-thanks-text-lower {
-  margin: 0;
-  font-size: 0.8rem;
-}
+
 
 .extra-thanks-back,
 .extra-thanks-home {
@@ -40,10 +37,9 @@
 }
 
 .extra-thanks-photo {
-  max-width: 200px;
+  max-width: 250px;
   width: 100%;
-  /* max-height: 450px; */
-  /* margin-bottom: 2rem; */
+  margin-bottom: 2rem;
   border-radius: 12px;
 }
 
@@ -51,9 +47,10 @@
   text-align: center;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
   .extra-thanks-back,
   .extra-thanks-home {
     font-size: 1rem;
   }
 }
+
