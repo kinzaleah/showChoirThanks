@@ -4,9 +4,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: #fff;
+  background: #ffffff;
   gap: 3rem;
-  padding: 0 1rem;
+  padding: 1rem 1rem;
   box-sizing: border-box;
 }
 .landing-image {

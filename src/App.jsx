@@ -6,10 +6,10 @@ import ExtraThanks from "./ExtraThanks";
 
 // List of photo filenames in src/photos (relative to public or src for Vite)
 const PHOTOS = [
-  "1-choir1aJazzHands.jpg",
-  "2-choir1bJazzHands.jpg",
-  "3-choir2aJazzHands.jpg",
-  "4-choir2bJazzHands.jpg",
+  "1-choir1aJazzHands_resized.jpg",
+  "2-choir1bJazzHands_resized.jpg",
+  "3-choir2aJazzHands_resized.jpg",
+  "4-choir2bJazzHands_resized.jpg",
   "5-choir1Busk.JPEG",
   "6-choir2Westbury.jpg",
   "7-choir1Basses.jpeg",
