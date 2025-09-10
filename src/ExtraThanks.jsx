@@ -8,20 +8,15 @@ function ExtraThanks({ onBack, onHome }) {
         src={`${import.meta.env.BASE_URL}photos/29-4StarReviews.jpg`}
         alt="4 Star Review"
         className="extra-thanks-photo"
-        style={{
-          maxWidth: "350px",
-          width: "100%",
-          marginBottom: "2rem",
-          borderRadius: "12px",
-        }}
+        
       />
       <h2>Extra Thanks To...</h2>
 
-      <p>
+      <p className="extra-thanks-text">
         Everyone who took part in Edinburgh Fringe '25 and made it such a
         success!!
       </p>
-      <p>
+      <p className="extra-thanks-text-lower">
         And a very big thank you to those who took photos that I've used here
         <br />- especially
         <a
@@ -34,14 +29,14 @@ function ExtraThanks({ onBack, onHome }) {
         </a>
       </p>
       <button className="extra-thanks-back" onClick={onBack}>
-        Back to Comments
+        Comments
       </button>
       <button
         className="extra-thanks-home"
         onClick={onHome}
         style={{ marginTop: "1rem" }}
       >
-        Back to Home
+        Home
       </button>
     </div>
   );
