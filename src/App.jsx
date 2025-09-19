@@ -65,11 +65,11 @@ function App() {
   const [showLanding, setShowLanding] = useState(true);
   const [showExtraThanks, setShowExtraThanks] = useState(false);
   const [page, setPage] = useState(1);
-  
+
   const [commentsPerPage, setCommentsPerPage] = useState(
     DEFAULT_COMMENTS_PER_PAGE
   );
-  
+
   const [shuffledComments] = useState(() => {
     const saved = localStorage.getItem("shuffledComments");
     if (saved) {
@@ -144,10 +144,20 @@ function App() {
   const photoSrc = `${import.meta.env.BASE_URL}photos/${PHOTOS[photoIdx]}`;
 
   return (
-      <div className="container">
-        <div className="fringe-logo-container">
-          <img src={`${import.meta.env.BASE_URL}photos/fringeLogo.jpg`} alt="Fringe Logo" style={{ maxWidth: '180px', width: '100%', height: 'auto', display: 'block', margin: '0 auto' }} />
-        </div>
+    <div className="container">
+      <div className="fringe-logo-container">
+        <img
+          src={`${import.meta.env.BASE_URL}photos/fringeLogo.jpg`}
+          alt="Fringe Logo"
+          style={{
+            maxWidth: "180px",
+            width: "100%",
+            height: "auto",
+            display: "block",
+            margin: "0 auto",
+          }}
+        />
+      </div>
       <div className="grid">
         <div className="photo">
           <img src={photoSrc} alt={`Show Choir ${photoIdx + 1}`} />
@@ -182,7 +192,8 @@ function App() {
       )}
       <div className="pagination">
         <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-          &lt; Prev
+          <span className="arrow">&lt;</span>
+          <span className="pagination-text"> Prev</span>
         </button>
         <span>
           Page
@@ -207,7 +218,8 @@ function App() {
           onClick={() => setPage(page + 1)}
           disabled={page === totalPages}
         >
-          Next &gt;
+          <span className="pagination-text">Next </span>
+          <span className="arrow">&gt;</span>
         </button>
       </div>
     </div>

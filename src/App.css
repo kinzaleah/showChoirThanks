@@ -6,12 +6,10 @@
 }
 
 #root {
-  
   margin: 0 auto;
   padding: 2rem;
   text-align: left;
 }
-
 
 .container {
   display: flex;
@@ -59,7 +57,7 @@
 .comment {
   border-radius: 12px;
   padding: 1.2rem 1.5rem;
-  box-shadow: 0 2px 8px rgba(227, 11, 92, 0.10);
+  box-shadow: 0 2px 8px rgba(227, 11, 92, 0.1);
   font-size: 1.1rem;
   background: linear-gradient(120deg, #fff 0%, #f8e3f1 100%);
   border: 1.5px solid darkslategrey;
@@ -103,6 +101,23 @@
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
+
+.pagination .arrow {
+  font-size: 1.1em;
+}
+.pagination .pagination-text {
+  display: inline;
+}
+
+@media (max-width: 700px) {
+  .pagination .pagination-text {
+    display: none;
+  }
+  .pagination .arrow {
+    font-size: 1.2em;
+    margin: 0 0.1em;
+  }
+}
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -112,9 +127,28 @@ body {
   place-items: start !important;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 400px) {
+  .pagination button {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.8rem;
+    max-width: 40px;
+  }
+  .pagination span {
+    font-size: 0.8rem;
+  }
+  .pagination select {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.3rem;
+    /* min-width: 48px; */
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
   .grid {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .photo {
     width: 100%;
@@ -126,11 +160,11 @@ body {
   .comments {
     width: 100%;
   }
-    .pagination button {
-      padding: 0.6rem 1rem;
-      font-size: 0.8rem;
-      max-width: 80px;
-    }
+  .pagination button {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    max-width: 80px;
+  }
   .pagination {
     position: static;
     margin-top: 1rem;
