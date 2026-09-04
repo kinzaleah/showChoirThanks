@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Landing from "./Landing";
 import thanksData from "./thanksData";
-import ExtraThanks from "./ExtraThanks";
 
 // List of photo filenames in public/photos
 const PHOTOS = [
@@ -73,7 +72,6 @@ function shuffleArray(array) {
 
 function App() {
   const [showLanding, setShowLanding] = useState(true);
-  const [showExtraThanks, setShowExtraThanks] = useState(false);
   const [page, setPage] = useState(1);
 
   const [commentsPerPage, setCommentsPerPage] = useState(
@@ -134,21 +132,6 @@ function App() {
     );
   }
 
-  if (showExtraThanks) {
-    return (
-      <ExtraThanks
-        onBack={() => {
-          setShowExtraThanks(false);
-          setPage(1);
-        }}
-        onHome={() => {
-          setShowExtraThanks(false);
-          setShowLanding(true);
-        }}
-      />
-    );
-  }
-
   // Pick a photo for this page, cycling if more pages than photos
   const photoIdx = (page - 1) % PHOTOS.length;
   const photoSrc = `${import.meta.env.BASE_URL}photos/${PHOTOS[photoIdx]}`;
@@ -186,20 +169,6 @@ function App() {
           ))}
         </div>
       </div>
-      {page === totalPages && (
-        <button
-          className="extra-thanks-back"
-          onClick={() => setShowExtraThanks(true)}
-          style={{
-            marginLeft: "auto",
-            marginRight: "auto",
-            display: "block",
-            marginBottom: "1rem",
-          }}
-        >
-          Extra Thanks
-        </button>
-      )}
       <div className="pagination">
         <button onClick={() => setPage(page - 1)} disabled={page === 1}>
           <span className="arrow">&lt;</span>
