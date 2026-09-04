@@ -79,21 +79,28 @@ function App() {
   );
 
   const [shuffledComments] = useState(() => {
+    const dataSignature = JSON.stringify(thanksData);
     const saved = localStorage.getItem("shuffledComments");
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const savedData = JSON.parse(saved);
+        if (
+          savedData.dataSignature === dataSignature &&
+          Array.isArray(savedData.comments)
+        ) {
+          return savedData.comments;
+        }
       } catch {
-        // fallback to shuffle if corrupted
-        const shuffled = shuffleArray(thanksData);
-        localStorage.setItem("shuffledComments", JSON.stringify(shuffled));
-        return shuffled;
+        // Create a fresh shuffle if the saved value is corrupted.
       }
-    } else {
-      const shuffled = shuffleArray(thanksData);
-      localStorage.setItem("shuffledComments", JSON.stringify(shuffled));
-      return shuffled;
     }
+
+    const shuffled = shuffleArray(thanksData);
+    localStorage.setItem(
+      "shuffledComments",
+      JSON.stringify({ dataSignature, comments: shuffled })
+    );
+    return shuffled;
   });
 
   useEffect(() => {
