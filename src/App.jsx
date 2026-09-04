@@ -4,41 +4,51 @@ import Landing from "./Landing";
 import thanksData from "./thanksData";
 import ExtraThanks from "./ExtraThanks";
 
-// List of photo filenames in src/photos (relative to public or src for Vite)
+// List of photo filenames in public/photos
 const PHOTOS = [
-  "1-choir1aJazzHands_resized.jpg",
-  "2-choir1bJazzHands_resized.jpg",
-  "3-choir2aJazzHands_resized.jpg",
-  "4-choir2bJazzHands_resized.jpg",
-  "5-choir1Busk.JPEG",
-  "6-choir2Westbury.jpg",
-  "7-choir1Basses.jpeg",
-  "8-choir2Sops.jpg",
-  "9-choir1GroupSocial.jpg",
-  "10-choir2BugsyHands.jpg",
-  "11-choir1PerformanceWithDoug.jpeg",
-  "12-choir2BassChaos.jpg",
-  "13-choir1SopsOnTheStairs.JPEG",
-  "14-choir2Doug.jpg",
-  "15-choir1Bath.jpg",
-  "16-choir2Basses.jpg",
-  "17-choir1CliftonCastle.JPEG",
-  "18-choir2Tenors.jpg",
-  "19-choir1PerformanceWithJess.jpeg",
-  "20-choir2Social.jpg",
-  "21-choir1GroupSocial2.jpg",
-  "22-choir2Sops2.jpg",
-  "23-choir1GroupSocial3.jpg",
-  "24-choir2WestonPortishead.jpg",
-  "25-choir1Sops.jpeg",
-  "28-choir2Group.jpg",
-  "27-choir1ArthursSeat.jpeg",
-  "26-choir2BugsyJess.jpg",
-  "29-4StarReviews.jpg",
+  "resized-079.jpg",
+  "resized-081.jpg",
+  "resized-083.jpg",
+  "resized-084.jpg",
+  "resized-085.jpg",
+  "resized-086.jpg",
+  "resized-087.jpg",
+  "resized-090.jpg",
+  "resized-091.jpg",
+  "resized-092.jpg",
+  "resized-093.jpg",
+  "resized-094.jpg",
+  "resized-095.jpg",
+  "resized-096.jpg",
+  "resized-097.jpg",
+  "resized-098.jpg",
+  "resized-099.jpg",
+  "resized-100.jpg",
+  "resized-101.jpg",
+  "resized-102.jpg",
+  "resized-103.jpg",
+  "resized-105.jpg",
+  "resized-106.jpg",
+  "resized-107.jpg",
+  "resized-108.jpg",
+  "resized-109.jpg",
+  "resized-110.jpg",
+  "resized-112.jpg",
+  "resized-113.jpg",
+  "resized-114.jpg",
+  "resized-115.jpg",
+  "resized-116.jpg",
+  "resized-120.jpg",
+  "resized-121.jpg",
+  "resized-122.jpg",
+  "resized-124.jpg",
+  "resized-125.jpg",
+  "resized-126.jpg",
+  "resized-127.jpg",
 ];
 
-// Use 3 comments per page to avoid overlap
-const DEFAULT_COMMENTS_PER_PAGE = 3;
+// Use 2 comments per page to avoid overlap
+const DEFAULT_COMMENTS_PER_PAGE = 2;
 
 const COMMENT_COLORS = [
   "#FFB3BA", // light red
