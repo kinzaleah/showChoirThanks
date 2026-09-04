@@ -6,7 +6,7 @@ function Landing({ onEnter }) {
   return (
     <div className="landing-container">
       <img src={PLACEHOLDER_IMAGE} alt="Thank you" className="landing-image" />
-      <h1 className="landing-title">Thank you Jess, Doug &amp; George!</h1>
+      <h1 className="landing-title">Thank you Jess, Doug &amp; Team!</h1>
       <button className="landing-enter" onClick={onEnter}>
         Click me!
       </button>
