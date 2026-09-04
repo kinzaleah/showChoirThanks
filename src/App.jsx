@@ -73,6 +73,7 @@ function shuffleArray(array) {
 function App() {
   const [showLanding, setShowLanding] = useState(true);
   const [page, setPage] = useState(1);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const [commentsPerPage, setCommentsPerPage] = useState(
     DEFAULT_COMMENTS_PER_PAGE
@@ -128,6 +129,26 @@ function App() {
     }
   }, [page]);
 
+  // Pick a photo for this page, cycling if more pages than photos
+  const photoIdx = (page - 1) % PHOTOS.length;
+  const photoSrc = `${import.meta.env.BASE_URL}photos/${PHOTOS[photoIdx]}`;
+
+  // Reset the loaded flag whenever the photo changes so comments wait for it.
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [photoSrc]);
+
+  // Preload the neighboring photos so Prev/Next feel instant once cached.
+  useEffect(() => {
+    const preload = (idx) => {
+      const wrappedIdx = ((idx % PHOTOS.length) + PHOTOS.length) % PHOTOS.length;
+      const preloadImg = new Image();
+      preloadImg.src = `${import.meta.env.BASE_URL}photos/${PHOTOS[wrappedIdx]}`;
+    };
+    preload(photoIdx + 1);
+    preload(photoIdx - 1);
+  }, [photoIdx]);
+
   if (showLanding) {
     return (
       <Landing
@@ -138,10 +159,6 @@ function App() {
       />
     );
   }
-
-  // Pick a photo for this page, cycling if more pages than photos
-  const photoIdx = (page - 1) % PHOTOS.length;
-  const photoSrc = `${import.meta.env.BASE_URL}photos/${PHOTOS[photoIdx]}`;
 
   return (
     <div className="container">
@@ -160,9 +177,18 @@ function App() {
       </div>
       <div className="grid">
         <div className="photo">
-          <img src={photoSrc} alt={`Show Choir ${photoIdx + 1}`} />
+          {!imageLoaded && <div className="photo-placeholder" aria-hidden="true" />}
+          <img
+            src={photoSrc}
+            alt={`Show Choir ${photoIdx + 1}`}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            onLoad={() => setImageLoaded(true)}
+            style={{ display: imageLoaded ? "block" : "none" }}
+          />
         </div>
-        <div className="comments">
+        <div className={`comments${imageLoaded ? " comments-visible" : ""}`}>
           {comments.map((entry, idx) => (
             <div
               className="comment"
